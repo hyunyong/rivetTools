@@ -39,7 +39,7 @@ namespace Rivet {
       const FourMomentum jet3 = jets[2].momentum();
 
       // Cut on lead jet pT and lead/sublead jet centrality
-      if (jet1.pT() < 100*GeV) vetoEvent;
+      if (jet1.pT() < 74*GeV) vetoEvent;
       if (jet1.abseta() > 2.5 || jet2.abseta() > 2.5) vetoEvent;
 
       double dPhi12 = jet2.phi() - jet1.phi();
