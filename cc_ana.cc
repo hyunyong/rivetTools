@@ -26,6 +26,27 @@ namespace Rivet {
       _h_4 = bookHisto1D("h_high_eta_medium_pt", 18, 0, M_PI);
       _h_5 = bookHisto1D("h_low_eta_high_pt", 18, 0, M_PI);
       _h_6 = bookHisto1D("h_high_eta_high_pt", 18, 0, M_PI);
+
+      _h_7 =  bookHisto1D("h_lelp_jet1_pt", 30, 0, 250)
+      _h_8 =  bookHisto1D("h_help_jet1_pt", 30, 0, 250)
+      _h_9 =  bookHisto1D("h_lemp_jet1_pt", 30, 0, 550)
+      _h_10 = bookHisto1D("h_hemp_jet1_pt", 30, 0, 550)
+      _h_11 = bookHisto1D("h_lehp_jet1_pt", 30, 0, 2500)
+      _h_12 = bookHisto1D("h_hehp_jet1_pt", 30, 0, 2500)
+
+      _h_13 = bookHisto1D("h_lelp_jet2_pt", 30, 0, 250)
+      _h_14 = bookHisto1D("h_help_jet2_pt", 30, 0, 250)
+      _h_15 = bookHisto1D("h_lemp_jet2_pt", 30, 0, 550)
+      _h_16 = bookHisto1D("h_hemp_jet2_pt", 30, 0, 550)
+      _h_17 = bookHisto1D("h_lehp_jet2_pt", 30, 0, 2500)
+      _h_18 = bookHisto1D("h_hehp_jet2_pt", 30, 0, 2500)
+
+      _h_19 = bookHisto1D("h_lelp_jet3_pt", 30, 0, 250)
+      _h_20 = bookHisto1D("h_help_jet3_pt", 30, 0, 250)
+      _h_21 = bookHisto1D("h_lemp_jet3_pt", 30, 0, 550)
+      _h_22 = bookHisto1D("h_hemp_jet3_pt", 30, 0, 550)
+      _h_23 = bookHisto1D("h_lehp_jet3_pt", 30, 0, 2500)
+      _h_24 = bookHisto1D("h_hehp_jet3_pt", 30, 0, 2500)
     }
 
 
@@ -65,12 +86,21 @@ namespace Rivet {
       double beta = fabs(atan2(dPhi23, sign(jet2.eta())*dEta23));
       if (inRange(jet1.pT(), 74*GeV,220*GeV)){
          ((jet2.abseta() < 0.8) ? _h_1 : _h_2)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_7 : _h_8)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_13 : _h_14)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_19 : _h_20)->fill(beta, event.weight());
       }
       if (inRange(jet1.pT(), 220*GeV,507*GeV)){
          ((jet2.abseta() < 0.8) ? _h_3 : _h_4)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_9 : _h_10)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_15 : _h_16)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_21 : _h_22)->fill(beta, event.weight());
       }
       if (inRange(jet1.pT(), 507*GeV,2500*GeV)){
          ((jet2.abseta() < 0.8) ? _h_5 : _h_6)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_11 : _h_12)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_17 : _h_18)->fill(beta, event.weight());
+         ((jet2.abseta() < 0.8) ? _h_23 : _h_24)->fill(beta, event.weight());
       }
 
     }
@@ -101,6 +131,24 @@ namespace Rivet {
     Histo1DPtr _h_4;
     Histo1DPtr _h_5;
     Histo1DPtr _h_6;
+    Histo1DPtr _h_7;
+    Histo1DPtr _h_8;
+    Histo1DPtr _h_9;
+    Histo1DPtr _h_10;
+    Histo1DPtr _h_11;
+    Histo1DPtr _h_12;
+    Histo1DPtr _h_13;
+    Histo1DPtr _h_14;
+    Histo1DPtr _h_15;
+    Histo1DPtr _h_16;
+    Histo1DPtr _h_17;
+    Histo1DPtr _h_18;
+    Histo1DPtr _h_19;
+    Histo1DPtr _h_20;
+    Histo1DPtr _h_21;
+    Histo1DPtr _h_22;
+    Histo1DPtr _h_23;
+    Histo1DPtr _h_24;
     //@}
 
   };
