@@ -27,26 +27,26 @@ namespace Rivet {
       _h_5 = bookHisto1D("h_low_eta_high_pt", 18, 0, M_PI);
       _h_6 = bookHisto1D("h_high_eta_high_pt", 18, 0, M_PI);
 
-      _h_7 =  bookHisto1D("h_lelp_jet1_pt", 30, 0, 250)
-      _h_8 =  bookHisto1D("h_help_jet1_pt", 30, 0, 250)
-      _h_9 =  bookHisto1D("h_lemp_jet1_pt", 30, 0, 550)
-      _h_10 = bookHisto1D("h_hemp_jet1_pt", 30, 0, 550)
-      _h_11 = bookHisto1D("h_lehp_jet1_pt", 30, 0, 2500)
-      _h_12 = bookHisto1D("h_hehp_jet1_pt", 30, 0, 2500)
+      _h_7 =  bookHisto1D("h_lelp_jet1_pt", 30, 0, 250);
+      _h_8 =  bookHisto1D("h_help_jet1_pt", 30, 0, 250);
+      _h_9 =  bookHisto1D("h_lemp_jet1_pt", 30, 0, 550);
+      _h_10 = bookHisto1D("h_hemp_jet1_pt", 30, 0, 550);
+      _h_11 = bookHisto1D("h_lehp_jet1_pt", 30, 0, 2500);
+      _h_12 = bookHisto1D("h_hehp_jet1_pt", 30, 0, 2500);
 
-      _h_13 = bookHisto1D("h_lelp_jet2_pt", 30, 0, 250)
-      _h_14 = bookHisto1D("h_help_jet2_pt", 30, 0, 250)
-      _h_15 = bookHisto1D("h_lemp_jet2_pt", 30, 0, 550)
-      _h_16 = bookHisto1D("h_hemp_jet2_pt", 30, 0, 550)
-      _h_17 = bookHisto1D("h_lehp_jet2_pt", 30, 0, 2500)
-      _h_18 = bookHisto1D("h_hehp_jet2_pt", 30, 0, 2500)
+      _h_13 = bookHisto1D("h_lelp_jet2_pt", 30, 0, 250);
+      _h_14 = bookHisto1D("h_help_jet2_pt", 30, 0, 250);
+      _h_15 = bookHisto1D("h_lemp_jet2_pt", 30, 0, 550);
+      _h_16 = bookHisto1D("h_hemp_jet2_pt", 30, 0, 550);
+      _h_17 = bookHisto1D("h_lehp_jet2_pt", 30, 0, 2500);
+      _h_18 = bookHisto1D("h_hehp_jet2_pt", 30, 0, 2500);
 
-      _h_19 = bookHisto1D("h_lelp_jet3_pt", 30, 0, 250)
-      _h_20 = bookHisto1D("h_help_jet3_pt", 30, 0, 250)
-      _h_21 = bookHisto1D("h_lemp_jet3_pt", 30, 0, 550)
-      _h_22 = bookHisto1D("h_hemp_jet3_pt", 30, 0, 550)
-      _h_23 = bookHisto1D("h_lehp_jet3_pt", 30, 0, 2500)
-      _h_24 = bookHisto1D("h_hehp_jet3_pt", 30, 0, 2500)
+      _h_19 = bookHisto1D("h_lelp_jet3_pt", 30, 0, 250);
+      _h_20 = bookHisto1D("h_help_jet3_pt", 30, 0, 250);
+      _h_21 = bookHisto1D("h_lemp_jet3_pt", 30, 0, 550);
+      _h_22 = bookHisto1D("h_hemp_jet3_pt", 30, 0, 550);
+      _h_23 = bookHisto1D("h_lehp_jet3_pt", 30, 0, 2500);
+      _h_24 = bookHisto1D("h_hehp_jet3_pt", 30, 0, 2500);
     }
 
 
