@@ -10,4 +10,9 @@ wget -P Configuration/GenProduction/python/ https://raw.githubusercontent.com/cm
 cp rivetTools/cc_ana.cc GeneratorInterface/RivetInterface/src
 scram b -j 8
 ```
-
+##runGen.py
+```
+python runGen.py sample.py tot_num num_per_job min_pt_hat max_pt_hat
+e.g.)
+python runGen.py QCD_Tune4C_8TeV_pythia8_rivet.py 1000 10 100 2500
+```
