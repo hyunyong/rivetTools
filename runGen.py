@@ -29,15 +29,16 @@ cat $PBS_NODEFILE
 #echo $PBS_TASKNUM
 
 source /pnfs/etc/profile.d/cmsset_default.sh
-cd /pnfs/user/hyunyong/CMSSW_7_2_0_pre3/src
+cd %s
 eval `scramv1 runtime -sh`
 """
 
+path = os.getcwd()
 mc_name = ana_path.split("/")[-1]
 for x in xrange(n_f):
   x = x+501
   tmp_cmd = open(itime_dir+"/q_%03d.cmd"%x,'w')
-  tmp_cmd.write(script_head%(raw_f[:-3],x))
+  tmp_cmd.write(script_head%(raw_f[:-3],x,path))
   tmp_cmd.write("\ncd "+itime_dir+"\n")
   tmp_cmd.write("cmsRun "+ana_path+"/"+raw_f+" %d %d %d %d"%(max_num, x, min_pt, max_pt))
   tmp_cmd.close()
