@@ -6,6 +6,7 @@ cd rivet/src
 cmsenv
 git cms-addpkg GeneratorInterface/RivetInterface
 git clone git@github.com:hyunyong/rivetTools.git
+wget -P Configuration/GenProduction/python/ https://raw.githubusercontent.com/cms-sw/genproductions/master/python/rivet_customize.py 
 cp rivetTools/cc_ana.cc GeneratorInterface/RivetInterface/src
 scram b -j 8
 ```
