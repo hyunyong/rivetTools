@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+import os
+import sys
+
+target = sys.argv[1]
+
+tag = ""
+log_f = open(target+"/run_set.log",'r')
+for x in log_f:
+  if x.startswith("Job Tag :"):
+    tag = x.split(" : ")[1][:-1]
+print tag
+os.system("rootCp %s"%target)
+
+root_f  = [d for d in os.listdir(target) if d.endswith(".root")]
+sample_list = []
+for x in root_f:
+  tmp = x.split("_")
+  tmp2 = ""
+  for t in tmp[:-2]:
+    tmp2 += t+"_"
+  try:
+    if sample_list.index(tmp2)<0:
+      sample_list.append(tmp2)
+  except:
+    sample_list.append(tmp2)
+
+
+print sample_list
+os.chdir(target)
+
+for x in sample_list:
+  nu_root = x+"hist_%s.root"%tag
+  print nu_root
+  if os.path.exists(nu_root):
+    os.system("rm "+nu_root)
+  os.system("hadd "+nu_root+" "+x+"*.root")
+
+  os.system("mv "+nu_root+" ..")
