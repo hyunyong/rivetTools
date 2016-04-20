@@ -43,10 +43,8 @@ class Histo2D:
     self.y_min = h2.bins[0].yMin
     self.x_max = h2.bins[-1].xMax
     self.y_max = h2.bins[-1].yMax
-    self.dx = h2.bins[0].widths[0]
-    self.dy = h2.bins[0].widths[1]
-    self.nx = int((self.x_max - self.x_min)/self.dx)
-    self.ny = int((self.y_max - self.y_min)/self.dy)
+    self.nx = h2.numBinsX
+    self.ny = h2.numBinsY
   def getBinContent(self, index):
     return self.bins[index].effNumEntries
 
@@ -67,19 +65,19 @@ class Profile1D:
   def getBinContent(self, index):
     return self.bins[index].mean
   def makeTProfile(self):
-    bin_l = [self.bins[0].lowEdge]
+    bin_l = [self.bins[0].xMin]
     for x in self.bins:
-      bin_l.append(x.highEdge)
-    bin_l = [0,100,200,300,400,500,600,700,800,1000,1500]
-    #tp1 = ROOT.TProfile(self.title, self.title, self.numOfBins, array.array('d',bin_l))
-    tp1 = ROOT.TProfile(self.title, self.title, len(bin_l)-1, array.array('d',bin_l))
+      bin_l.append(x.xMax)
+    #bin_l = [0,100,200,300,400,500,600,700,800,1000,1500]
+    tp1 = ROOT.TProfile(self.title, self.title, self.numOfBins, array.array('d',bin_l))
+    #tp1 = ROOT.TProfile(self.title, self.title, len(bin_l)-1, array.array('d',bin_l))
     for x in self.bins:
       bv = 0.0
       try:
         bv = x.mean
       except:
         bv = 0.0
-      tp1.Fill(x.midpoint, bv, x.effNumEntries)
+      tp1.Fill(x.xMid, bv, x.effNumEntries)
     return tp1
 
 if __name__ =='__main__':
@@ -89,23 +87,24 @@ if __name__ =='__main__':
   in_dir = sys.argv[1]
   in_file = [x for x in os.listdir(in_dir) if x.endswith(".yoda")]
   print in_file
-  tmp = yoda.read(in_file[0])
-  key_l = tmp.keys()
-  hist_l = []
-  for x in key_l:
-    tmp_h = tmp.get(x)
-    if tmp_h.type == "Histo1D":
-      tmp_h1 = Histo1D(tmp_h)
-      hist_l.append(tmp_h1.makeTH1F())
-    if tmp_h.type == "Histo2D":
-      tmp_h2 = Histo2D(tmp_h)
-      hist_l.append(tmp_h2.makeTH2D())
-    if tmp_h.type == "Profile1D":
-      tmp_p1 = Profile1D(tmp_h)
-      hist_l.append(tmp_p1.makeTProfile())
+  for f in in_file:
+    tmp = yoda.read(f)
+    key_l = tmp.keys()
+    hist_l = []
+    for x in key_l:
+      tmp_h = tmp.get(x)
+      if tmp_h.type == "Histo1D":
+        tmp_h1 = Histo1D(tmp_h)
+        hist_l.append(tmp_h1.makeTH1F())
+      if tmp_h.type == "Histo2D":
+        tmp_h2 = Histo2D(tmp_h)
+        hist_l.append(tmp_h2.makeTH2D())
+      if tmp_h.type == "Profile1D":
+        tmp_p1 = Profile1D(tmp_h)
+        hist_l.append(tmp_p1.makeTProfile())
 
-  out_f = ROOT.TFile(in_file[0].replace(".yoda", ".root").split("/")[-1], "RECREATE")
-  out_f.cd()
-  for x in hist_l:
-    x.Write()
-  out_f.Close()
+    out_f = ROOT.TFile(f.replace(".yoda", ".root").split("/")[-1], "RECREATE")
+    out_f.cd()
+    for x in hist_l:
+      x.Write()
+    out_f.Close()
