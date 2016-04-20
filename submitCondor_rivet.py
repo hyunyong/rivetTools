@@ -14,12 +14,13 @@ def submiter(exe_l):
 
 teve = 5000000*3
 cfg_l = ["QCD_TuneCUETP8M1_13TeV_pythia8_rivet.py",
-         "QCD_TuneCUETP8M1_13TeV_pythia8_rivet_cc_off.py"]
+         "QCD_TuneCUETP8M1_13TeV_pythia8_rivet_cc_off.py"]#,
          #"QCD_TuneCUETP8M1_13TeV_pythia8_rivet_cc_isr_off.py",
          #"QCD_TuneCUETP8M1_13TeV_pythia8_rivet_cc_fsr_off.py",
          #"QCD_TuneCUETP8M1_13TeV_pythia8_rivet_cc_tgp_off.py",
          #"QCD_TuneCUETP8M1_13TeV_pythia8_rivet_cc_sgp_off.py"]
-tag_l = ["cc_on", "cc_off"]#, "isr_off", "fsr_off", "tgp_off", "sgp_off"]
+tag_l = ["lpt3_cc_on", "lpt3_cc_off"]#, "isr_off", "fsr_off", "tgp_off", "sgp_off"]
+#tag_l = ["cc_on", "cc_off", "isr_off", "fsr_off", "tgp_off", "sgp_off"]
 """
 cfg_l = ["QCD_TuneD6T_13TeV_pythia6_rivet_cc_on.py",
          "QCD_TuneD6T_13TeV_pythia6_rivet_cc_off.py",

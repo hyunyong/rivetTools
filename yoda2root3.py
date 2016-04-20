@@ -14,12 +14,12 @@ class Histo1D:
   def getBinContent(self, index):
     return self.bins[index].effNumEntries 
   def makeTH1F(self):
-    bin_l = [self.bins[0].lowEdge]
+    bin_l = [self.bins[0].xMin]
     for x in self.bins:
-      bin_l.append(x.highEdge)
+      bin_l.append(x.xMax)
     th1 = ROOT.TH1F(self.title, self.title, self.numOfBins, array.array('d',bin_l))
     for x in self.bins:
-      th1.Fill(x.midpoint, x.effNumEntries)
+      th1.Fill(x.xMid, x.effNumEntries)
     return th1
 
 
@@ -88,6 +88,7 @@ if __name__ =='__main__':
   ROOT.gROOT.SetBatch()
   in_dir = sys.argv[1]
   in_file = [x for x in os.listdir(in_dir) if x.endswith(".yoda")]
+  print in_file
   tmp = yoda.read(in_file[0])
   key_l = tmp.keys()
   hist_l = []
@@ -108,4 +109,3 @@ if __name__ =='__main__':
   for x in hist_l:
     x.Write()
   out_f.Close()
-    
