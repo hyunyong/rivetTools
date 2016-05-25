@@ -115,5 +115,3 @@ process = customise(process)
 process.rivetAnalyzer.AnalysisNames = cms.vstring('cc_ana')
 process.rivetAnalyzer.OutputFile = cms.string('QCD_powheg_ct10_pythia8_cuetp8m1_13TeV_rivet_%03d.yoda'%(f_num))
 
-
-
