@@ -20,7 +20,8 @@ namespace Rivet {
     void init() {
       const FastJets jets(FinalState(-10, 10, 0.0*GeV), FastJets::ANTIKT, jr);
       addProjection(jets, "Jets");
-      std::vector<double> ptrBin = {0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.9};
+      std::vector<double> ptrBin;
+      ptrBin.push_back(0.0);ptrBin.push_back(0.1);ptrBin.push_back(0.2);ptrBin.push_back(0.3);ptrBin.push_back(0.4);ptrBin.push_back(0.6);ptrBin.push_back(0.9);
       _h1 = bookHisto1D("non_eta_high_pt_sdr_pt3_jet3_pt_jet2_pt", ptrBin);
       _h2 = bookHisto1D("non_eta_high_pt_ldr_pt3_jet3_pt_jet2_pt", ptrBin);
       _h3 = bookHisto1D("non_eta_high_pt_dr_lpt3_del_r23", drBin,jr,1.5);
